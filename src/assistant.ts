@@ -86,6 +86,7 @@ export class Assistant {
       sampleRateHertz: 16000,
       volumePercentage: 100,
     },
+    html: boolean = false,
   ): AudioConversation {
     return new AudioConversation(
       this._client.assist(),
@@ -94,6 +95,7 @@ export class Assistant {
       this.locale,
       audioInConfig,
       audioOutConfig,
+      html
     );
   }
 

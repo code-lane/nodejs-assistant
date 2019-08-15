@@ -27,6 +27,7 @@ export class AudioConversation extends Conversation {
     locale: AssistantLanguage,
     audioInConfig: AudioInConfig,
     audioOutConfig: AudioOutConfig,
+    html: boolean = true,
   ) {
     super(_stream, _deviceId, _deviceModelId, locale);
     this.sendRequest({
@@ -36,6 +37,7 @@ export class AudioConversation extends Conversation {
       deviceModelId: _deviceModelId,
       isNewConversation: true,
       locale,
+      html: html
     });
   }
 
