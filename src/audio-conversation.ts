@@ -24,6 +24,7 @@ export class AudioConversation extends Conversation {
     _stream: ClientDuplexStream<AssistRequest, AssistResponse>,
     _deviceId: string,
     _deviceModelId: string,
+    conversationState: Buffer,
     locale: AssistantLanguage,
     audioInConfig: AudioInConfig,
     audioOutConfig: AudioOutConfig,
@@ -37,7 +38,8 @@ export class AudioConversation extends Conversation {
       deviceModelId: _deviceModelId,
       isNewConversation: true,
       locale,
-      html: html
+      html,
+      conversationState
     });
   }
 

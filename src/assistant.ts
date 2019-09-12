@@ -18,6 +18,13 @@ export interface AssistantQueryOptions {
   audioOutConfig?: AudioOutConfig;
 }
 
+export interface AssistantConversationOptions {
+  conversationState?: Buffer;
+  locale?: string;
+  html?: boolean;
+}
+
+
 /**
  * The base class to connect with the Assistant.
  * @author Giorgio Garasto <giorgio@garasto.it>
@@ -86,16 +93,18 @@ export class Assistant {
       sampleRateHertz: 16000,
       volumePercentage: 100,
     },
-    html: boolean = false,
+    conversationConfig: AssistantConversationOptions
+    
   ): AudioConversation {
     return new AudioConversation(
       this._client.assist(),
       this.deviceId,
       this.deviceModelId,
+      conversationConfig.conversationState,
       this.locale,
       audioInConfig,
       audioOutConfig,
-      html
+      conversationConfig.html,
     );
   }
 
